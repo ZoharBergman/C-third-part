@@ -1,38 +1,8 @@
-﻿Build started 08/10/2017 15:23:51.
+﻿Build started 08/10/2017 20:46:18.
      1>Project "C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System - part 3\Zoo_Managment_System - part 3\Zoo_Managment_System - part 3.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Area.cpp AreaManager.cpp Elephant.cpp Worker.cpp Zoo.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Area.cpp
          Area.cpp
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(52): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(53): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(55): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(56): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(64): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.cpp(27): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.cpp(44): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.cpp(62): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.cpp(79): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-         Generating Code...
-         Compiling...
-         Zoo.cpp
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(52): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(53): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(55): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(56): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\area.h(64): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.h(35): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.h(37): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.h(39): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.h(44): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.cpp(5): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.cpp(17): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-     1>c:\users\zuzu\desktop\זהר\אפקה\שנה ג\סמסטר קיץ\c++\פרוייקט\otherstudentsimpl\zoo_managment_system - part 3\zoo_managment_system - part 3\zoo.cpp(31): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Worker.cpp
-         Elephant.cpp
-         AreaManager.cpp
-         main.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System - part 3\Debug\Zoo_Managment_System - part 3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System - part 3\Debug\Zoo_Managment_System - part 3.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zuzu\Desktop\זהר\אפקה\שנה ג\סמסטר קיץ\C++\פרוייקט\OtherStudentsImpl\Zoo_Managment_System - part 3\Debug\Zoo_Managment_System - part 3.lib" /MACHINE:X86 Debug\Animal.obj
          Debug\Area.obj
@@ -55,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.24
+Time Elapsed 00:00:01.20

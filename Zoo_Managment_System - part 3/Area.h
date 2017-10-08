@@ -8,6 +8,7 @@
 
 #ifndef __AREA_H
 #define __AREA_H
+#pragma warning( disable : 4290 )
 
 #include <iostream>
 #include <vector>
@@ -15,6 +16,7 @@
 #include "AreaManager.h"
 #include "Worker.h"
 #include "Animal.h"
+#include "LinkedList.h"
 
 //class Animal;
 using namespace std;
@@ -27,11 +29,12 @@ private:
 	int maxNumberOfAnimals;
 	int maxNumberOfWorkers;
 	AreaManager* areaManager;
-	vector<Animal*> animals;
+	LinkedList<Animal*> animals;
+	int numOfAnimals;
 	vector<Worker*> workers;
 
 	Area(const Area& area);
-	//const Area& operator=(const Area& area);
+	const Area& operator=(const Area& area);
 
 public:
 
@@ -39,7 +42,7 @@ public:
 
 	inline const string& getName() const { return name; }
 
-	inline long getNumOfAnimals() const { return animals.size(); }
+	inline long getNumOfAnimals() const { return numOfAnimals; }
 	inline long getMaxNumberOfAnimals() const { return maxNumberOfAnimals; }
 
 	inline long getNumOfWorkers() const { return workers.size(); }
@@ -52,14 +55,14 @@ public:
 	void addAnimal(Animal* animal) throw (const char*);
 	void addWorker(Worker* worker) throw (const char*);
 
-	void removeAnimal(const Animal* animal) throw (const char*);
+	void removeAnimal(Animal* animal) throw (const char*);
 	void removeWorker(Worker* worker) throw (const char*);
 
-	const vector<Animal*> getAllAnimals() const { return animals; }
-	const vector<Worker*> getAllworkers() const { return workers; }
+	const LinkedList<Animal*>& getAllAnimals() const { return animals; }
+	const vector<Worker*>& getAllworkers() const { return workers; }
 
-	vector<Animal*> getAllAnimals() { return animals; }
-	vector<Worker*> getAllworkers() { return workers; }
+	LinkedList<Animal*>& getAllAnimals() { return animals; }
+	vector<Worker*>& getAllworkers() { return workers; }
 
 	const Area& operator+=(Animal* animal) throw (const char*) { addAnimal(animal); return *this; }
 
@@ -72,8 +75,8 @@ public:
 	friend ostream& operator<<(ostream& os, const Area& area);
 
 private:
-	vector<Worker*>::iterator isWorkerExists(const Worker* worker);
-	vector<Animal*>::iterator isAnimalExists(const Animal* animal);
+	vector<Worker*>::const_iterator isWorkerExists(const Worker* worker) const;
+	bool isAnimalExists(Animal* animal) const;
 };
 
 

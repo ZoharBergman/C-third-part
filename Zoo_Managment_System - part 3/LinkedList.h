@@ -15,73 +15,125 @@ template<class T>
 class LinkedList
 {
 private:
-	Node<T> firstNode;	
+	Node<T>* head;
+
+	LinkedList(const LinkedList<T>& other);
+	const LinkedList& operator=(const LinkedList<T>& other);
 
 public:
-	LinkedList(Node<T> firstNode);
+	LinkedList(Node<T>* head = nullptr);
+	~LinkedList();
 
-	const Node<T>& getFirstNode() const { return firstNode; }
+	void addData(const T& data);
 
-	void addNode(Node<T> node);
+	void removeData(const T& data);
 
-	void removeNode(Node<T> node);
+	bool isExists(const T& data) const;
 
-	friend ostream& operator<<(ostream& os, const LinkedList<T>& linkedList, char delimiter);
+	friend ostream& operator<<(ostream& os, const LinkedList<T>& linkedList);
 };
 
 template<class T>
-LinkedList<T>::LinkedList(Node<T> firstNode)
-{
-	this->firstNode.setData(firstNode.getData());
-	this->firstNode.setNext = nullptr;
-}
+LinkedList<T>::LinkedList(Node<T>* head) : head(head){}
 
 template<class T>
-void LinkedList<T>::addNode(Node<T> node)
+LinkedList<T>::~LinkedList()
 {
-	Node<T> currNode = firstNode;
-
-	// Finding the last node
-	while (currNode.getNext() != nullptr)
+	if (head != nullptr)
 	{
-		currNode = *(currNode.getNext());
+		Node<T>* tempNext = head->getNext();
+		Node<T>* curr = head;
+
+		delete curr;
+		curr = tempNext;
+
+		while (tempNext != nullptr)
+		{
+			tempNext = tempNext->getNext();
+			delete curr;
+			curr = tempNext;	
+		}
+
 	}
-
-	// Settint the next of the last node to the new node
-	currNode.setNext(&node);
-
-	// Setting the next of the new node to null
-	node.setNext(nullptr);
 }
 
 template<class T>
-void LinkedList<T>::removeNode(Node<T> node)
+void LinkedList<T>::addData(const T& data)
 {
-	Node<T> currNode = firstNode;
+	// Checking the linked list is initial
+	if (head == nullptr)
+	{
+		head = new Node<T>(data);
+	}
+	else
+	{
+		Node<T>* currNode = head;
+
+		// Finding the last node
+		while (currNode->getNext() != nullptr)
+		{
+			currNode = currNode->getNext();
+		}
+
+		Node<T>* newNode = new Node<T>(data);
+
+		// Settint the next of the last node to the new node
+		currNode->setNext(newNode);
+	}
+}
+
+template<class T>
+void LinkedList<T>::removeData(const T& data)
+{
+	Node<T>* currNode = head;
 
 	// Finding the node before the node to be removed
-	while (currNode != nullptr && currNode.getNext() != &node)
+	while (currNode != nullptr && currNode->getNext()->getData() != data)
 	{
-		currNode = *(currNode.getNext());
+		currNode = currNode->getNext();
 	}
 
-	// In case we found the node before, we should change it's next to the next of the node to be removed
+	// In case we found the node before, we should change it's next to the next of the node to be removed and delete the asked node
 	if (currNode != nullptr)
 	{
-		currNode.setNext(node.getNext());
+		Node<T>* temp = currNode->getNext();
+		currNode->setNext(currNode->getNext()->getNext());
+
+		delete temp;
 	}
 }
 
 template<class T>
-ostream& LinkedList<T>::operator<<(ostream& os, const LinkedList<T>& linkedList, char delimiter)
+bool LinkedList<T>::isExists(const T& data) const
 {
-	Node<T> currNode = linkedList.getFirstNode();
+	Node<T>* currNode = head;
 
-	while (currNode != nullptr)	
+	// Finding the node before the node to be removed
+	while (currNode != nullptr)
 	{
-		os << currNode.getData() << delimiter;
+		if (currNode->getData() == data)
+		{
+			return true;
+		}
+
+		currNode = currNode->getNext();
 	}
 
+	return false;
+}
+
+template<class T>
+ostream& operator<<(ostream& os, const LinkedList<T>& linkedList)
+{
+	Node<T>* currNode = linkedList.getHead();
+
+	while (currNode != nullptr)	
+	{		
+		os << "{" << currNode->getData() << "}, ";
+		currNode = currNode->getNext();
+	}
+
+	os << '\b' << '\b';
 	return os;
 }
 

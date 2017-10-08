@@ -1,9 +1,9 @@
 #include "Area.h"
 
 Area::Area(const string& name, int maxNumberOfAnimals, int maxNumberOfWorkers, AreaManager* areaManager) :
-	name(name), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), areaManager(nullptr)
+	name(name), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), areaManager(nullptr), numOfAnimals(0)
 {
-	setAreaManager(areaManager);	
+	setAreaManager(areaManager);
 }
 
 void Area::setAreaManager(AreaManager* newAreaManager)
@@ -30,9 +30,10 @@ void Area::addAnimal(Animal* animal) throw (const char *)
 	if (getNumOfAnimals() < maxNumberOfAnimals)
 	{
 		// Checking that the animal does not exists in this area
-		if (animal != nullptr && isAnimalExists(animal) == animals.end())
+		if (animal != nullptr && !isAnimalExists(animal))
 		{
-			animals.push_back(animal);
+			animals.addData(animal);
+			numOfAnimals++;
 		}
 	}
 	else
@@ -59,16 +60,15 @@ void Area::addWorker(Worker* worker) throw (const char *)
 	}
 }
 
-void Area::removeAnimal(const Animal* animal) throw (const char *)
+void Area::removeAnimal(Animal* animal) throw (const char *)
 {
 	if (animal != nullptr)
 	{
-		vector<Animal*>::iterator itr = isAnimalExists(animal);
-
 		// In case the animal exists, we should erase it from the vector of animals
-		if(itr != animals.end())
+		if(isAnimalExists(animal))
 		{
-			animals.erase(itr);
+			animals.removeData(animal);
+			numOfAnimals--;
 		}
 		else
 		{
@@ -76,11 +76,12 @@ void Area::removeAnimal(const Animal* animal) throw (const char *)
 		}
 	}
 }
+
 void Area::removeWorker(Worker* worker) throw (const char *)
 {
 	if (worker != nullptr)
 	{
-		vector<Worker*>::iterator itr = isWorkerExists(worker);
+		vector<Worker*>::const_iterator itr = isWorkerExists(worker);
 
 		// In case the worker exists, we should remove it from the cevtor of workers
 		if(itr != workers.end())
@@ -95,34 +96,25 @@ void Area::removeWorker(Worker* worker) throw (const char *)
 	}
 }
 
-vector<Worker*>::iterator Area::isWorkerExists(const Worker* worker)
+vector<Worker*>::const_iterator Area::isWorkerExists(const Worker* worker) const
 {
 	return find(workers.begin(), workers.end(), worker);
 }
 
-vector<Animal*>::iterator Area::isAnimalExists(const Animal* animal)
+bool Area::isAnimalExists(Animal* animal) const
 {
-	return find(animals.begin(), animals.end(), animal);
+	return animals.isExists(animal);
 }
 
 ostream& operator<<(ostream& os, const Area& area)
 {
 	if (&area != nullptr)
 	{
-		os << "Name: " << area.getName().c_str() << ", Max number of animals: " << area.getMaxNumberOfAnimals() << ", Number of animals: " << area.getNumOfAnimals()
-			<< ", Max number of workers: " << area.getMaxNumberOfWorkers() << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << *area.getAreaManager() << "}, Animals: {";
-
-		const vector<Animal*> animals = area.getAllAnimals();
-
-		for (vector<Animal*>::const_iterator itr = animals.begin(); itr < animals.end(); ++itr)
-		{
-			os << "{" << **itr << "}, ";
-		}
-
-		os << '\b' << '\b';
-
-		os << "}, Workers: {";
-
+		os << "Name: " << area.getName().c_str() << ", Max number of animals: " << area.getMaxNumberOfAnimals() 
+		   << ", Number of animals: " << area.getNumOfAnimals() << ", Max number of workers: " << area.getMaxNumberOfWorkers() 
+		   << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << *area.getAreaManager() << "}, Animals: {";
+		   //<< area.getAllAnimals() << "}, Workers: {";
+		const LinkedList<Animal*>& animals = area.getAllAnimals();
 		const vector<Worker*> workers = area.getAllworkers();
 
 		for (vector<Worker*>::const_iterator itr = workers.begin(); itr < workers.end(); ++itr)

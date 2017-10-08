@@ -24,7 +24,7 @@ private:
     const Animal& operator=(const Animal& animal);
     
 public:
-	Animal(float weight, int birthYear, const string& name = nullptr);
+	Animal(float weight, int birthYear, const string& name);
     
 	virtual ~Animal(){}
 
