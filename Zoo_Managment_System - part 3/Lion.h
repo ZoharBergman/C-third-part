@@ -13,8 +13,8 @@
 
 using namespace std;
 
-const static enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
-const static string eManeColorText[] = {"White", "Brown", "Yellow", "Red", "Orange"};
+static const enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
+static const string eManeColorText[] = {"White", "Brown", "Yellow", "Red", "Orange"};
 
 class Lion : public Animal
 {

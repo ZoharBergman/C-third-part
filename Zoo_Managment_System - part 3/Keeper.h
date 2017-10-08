@@ -11,9 +11,9 @@
 
 #include "Worker.h"
 
-const static int ANIMALS_SIZE = 7;
-const static enum eAnimal {LION, PENGUIN, ELEPHANT, GIRAFFE, ZEBRA, HORSE, ZEBROID};
-const static string eAnimalsNames[ANIMALS_SIZE] = {"Lion", "Penguin", "Elephant", "Giraffe", "Zebra", "Horse", "Zebroid"};
+static const int ANIMALS_SIZE = 7;
+static const enum eAnimal {LION, PENGUIN, ELEPHANT, GIRAFFE, ZEBRA, HORSE, ZEBROID};
+static const string eAnimalsNames[ANIMALS_SIZE] = {"Lion", "Penguin", "Elephant", "Giraffe", "Zebra", "Horse", "Zebroid"};
 
 class Keeper : public Worker
 {

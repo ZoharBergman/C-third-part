@@ -4,7 +4,7 @@ Zoo::Zoo(const string& name, int maxNumOfAreas) : name(name), maxNumOfAreas(maxN
 
 void Zoo::addArea(Area& area) throw (const char*)
 {
-	if (areas.size() < maxNumOfAreas)
+	if (getNumOfAreas() < maxNumOfAreas)
 	{
 		areas.push_back(&area);
 	}

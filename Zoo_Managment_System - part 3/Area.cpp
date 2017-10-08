@@ -1,8 +1,7 @@
 #include "Area.h"
 
 Area::Area(const string& name, int maxNumberOfAnimals, int maxNumberOfWorkers, AreaManager* areaManager) :
-	name(name), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), 
-	numOfAnimals(0), numOfWorkers(0), areaManager(nullptr)
+	name(name), maxNumberOfAnimals(maxNumberOfAnimals), maxNumberOfWorkers(maxNumberOfWorkers), areaManager(nullptr)
 {
 	setAreaManager(areaManager);	
 }
@@ -28,13 +27,12 @@ void Area::setAreaManager(AreaManager* newAreaManager)
 void Area::addAnimal(Animal* animal) throw (const char *)
 {
 	// Checking that there is enough place for another animal
-	if (numOfAnimals < maxNumberOfAnimals)
+	if (getNumOfAnimals() < maxNumberOfAnimals)
 	{
 		// Checking that the animal does not exists in this area
 		if (animal != nullptr && isAnimalExists(animal) == animals.end())
 		{
 			animals.push_back(animal);
-			numOfAnimals++;
 		}
 	}
 	else
@@ -46,13 +44,12 @@ void Area::addAnimal(Animal* animal) throw (const char *)
 void Area::addWorker(Worker* worker) throw (const char *)
 {
 	// Checking that there is enough place for another wotker
-	if (numOfWorkers < maxNumberOfWorkers)
+	if (getNumOfWorkers() < maxNumberOfWorkers)
 	{
 		// Checking that the worker does not exists in this area
 		if (worker != nullptr && isWorkerExists(worker) == workers.end())
 		{
 			workers.push_back(worker);
-			numOfWorkers++;
 			worker->setArea(this);
 		}
 	}
@@ -72,7 +69,6 @@ void Area::removeAnimal(const Animal* animal) throw (const char *)
 		if(itr != animals.end())
 		{
 			animals.erase(itr);
-			numOfAnimals--;
 		}
 		else
 		{
@@ -91,7 +87,6 @@ void Area::removeWorker(Worker* worker) throw (const char *)
 		{
 			worker->setArea(nullptr);
 			workers.erase(itr);
-			numOfWorkers--;
 		}
 		else
 		{

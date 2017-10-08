@@ -24,16 +24,14 @@ class Area
 
 private:
 	string name;
-	int numOfAnimals;
 	int maxNumberOfAnimals;
-	int numOfWorkers;
 	int maxNumberOfWorkers;
 	AreaManager* areaManager;
 	vector<Animal*> animals;
 	vector<Worker*> workers;
 
 	Area(const Area& area);
-	const Area& operator=(const Area& area);
+	//const Area& operator=(const Area& area);
 
 public:
 
@@ -41,10 +39,10 @@ public:
 
 	inline const string& getName() const { return name; }
 
-	inline long getNumOfAnimals() const { return numOfAnimals; }
+	inline long getNumOfAnimals() const { return animals.size(); }
 	inline long getMaxNumberOfAnimals() const { return maxNumberOfAnimals; }
 
-	inline long getNumOfWorkers() const { return numOfWorkers; }
+	inline long getNumOfWorkers() const { return workers.size(); }
 	inline long getMaxNumberOfWorkers() const { return maxNumberOfWorkers; }
 
 	inline const AreaManager* getAreaManager() const { return areaManager; }

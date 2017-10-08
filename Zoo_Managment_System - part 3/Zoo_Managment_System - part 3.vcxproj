@@ -69,8 +69,10 @@
     <ClInclude Include="Giraffe.h" />
     <ClInclude Include="Horse.h" />
     <ClInclude Include="Keeper.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Lion.h" />
     <ClInclude Include="MaintenanceWorker.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Penguin.h" />
     <ClInclude Include="Veterinarian.h" />
     <ClInclude Include="Worker.h" />

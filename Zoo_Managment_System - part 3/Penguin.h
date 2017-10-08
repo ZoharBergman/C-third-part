@@ -13,8 +13,8 @@
 
 using namespace std;
 
-const static enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
-const static string eSeaFoodText[] = {"Shrimp", "Crab", "Fish", "Calamari"};
+static const enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
+static const string eSeaFoodText[] = {"Shrimp", "Crab", "Fish", "Calamari"};
 
 class Penguin : public Animal
 {
