@@ -16,6 +16,7 @@ using namespace std;
 class Penguin : public Animal
 {
 public:
+	// Static consts
 	static const enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
 	static const char* eSeaFoodText[];
 

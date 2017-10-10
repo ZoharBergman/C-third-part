@@ -17,7 +17,6 @@ using namespace std;
 
 class Animal
 {
-    
 private:
     // Attributes
 	string name;

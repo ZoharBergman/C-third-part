@@ -22,7 +22,6 @@ using namespace std;
 
 class Area
 {
-
 private:
 	// Attributes
 	string name;
@@ -71,10 +70,9 @@ public:
 	friend ostream& operator<<(ostream& os, const Area& area);
 	
 private:
-	// Private methods
+	// Methods
 	vector<Worker*>::const_iterator isWorkerExists(const Worker* worker) const;
 	bool isAnimalExists(Animal* animal) const;
 };
-
 
 #endif /* __AREA_H */

@@ -36,8 +36,8 @@ private:
 public:
     // Getters
 	static Zoo* getInstance() { return &theZoo; }
-    const string& getName() const { return name; }
-    int getMaxNumOfAreas() const { return maxNumOfAreas; }
+    inline const string& getName() const { return name; }
+    inline int getMaxNumOfAreas() const { return maxNumOfAreas; }
 	int getNumOfAreas() const { return areas.size(); }
     const vector<Area*> getAllAreas() const { return areas; }
 	vector<Area*> getAllAreas() { return areas; }

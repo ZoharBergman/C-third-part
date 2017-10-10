@@ -15,7 +15,6 @@ using namespace std;
 
 class Giraffe : public Animal
 {
-
 private:
 	// Attributes
     float lengthOfNeck;
