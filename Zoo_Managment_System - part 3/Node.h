@@ -10,25 +10,25 @@ template<class T>
 class Node
 {
 private:
+	// Attributes
 	T data;
 	Node<T>* next;
 	
+	// Deleted methods
 	Node(const Node<T>& other);
 	const Node<T>& operator=(const Node<T>& other);
 
 public:
-	Node(T data);
+	// Ctor
+	Node(T data) : data(data), next(nullptr) {}
 	
-	const T& getData() const { return data; }
-	
+	// Getters & Setters
+	const T& getData() const { return data; }	
 	const Node<T>* getNext() const { return next; }
 	Node<T>* getNext() { return next; }
 
-	void setData(T data) { this->data = data; }
+	void setData(T data) { this->data = data; }	
 	void setNext(Node<T>* next) { this->next = next; }
 };
-
-template<class T>
-Node<T>::Node(T data) : data(data), next(nullptr) {}
 
 #endif //__NODE_H

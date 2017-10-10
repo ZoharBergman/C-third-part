@@ -5,6 +5,6 @@ Zebroid::Zebroid(const string& name, float weight, int birthYear, int numOfStrip
 
 void Zebroid::toOs(ostream& os) const
 {
-	this->Zebra::toOs(os);
-	this->Horse::toOs(os);	
+	Zebra::toOs(os);
+	Horse::toOs(os);
 }

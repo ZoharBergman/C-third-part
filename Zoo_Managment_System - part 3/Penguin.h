@@ -13,27 +13,31 @@
 
 using namespace std;
 
-static const enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
-static const string eSeaFoodText[] = {"Shrimp", "Crab", "Fish", "Calamari"};
-
 class Penguin : public Animal
 {
+public:
+	static const enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
+	static const char* eSeaFoodText[];
+
 private:
-    
+    // Attributes
     eSeaFood favoriteFood;
+
+	// Deleted methods
     Penguin(const Penguin& penguin);
     const Penguin& operator=(const Penguin& penguin);
 
 public:
-    
+    // Ctor
 	Penguin(const string& name, float weight, int birthYear, eSeaFood favoriteFood);        
     
+	// Getters & Setters
 	inline eSeaFood getFavoriteFood() const { return favoriteFood; }
+	
 	void setFavoriteFood(eSeaFood favoriteFood) { this->favoriteFood = favoriteFood; }
     
-    virtual void toOs(ostream& os) const;
-    
+	// Methods
+    virtual void toOs(ostream& os) const;    
 };
-
 
 #endif /* __PENGUIN_H */

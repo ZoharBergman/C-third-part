@@ -17,12 +17,15 @@ using namespace std;
 class Zebroid : public Horse, public Zebra
 {
 private:
+	// Deleted methods
 	Zebroid(const Zebroid& zebroid);
     const Zebroid& operator=(const Zebroid& zebroid);
 
 public:    
+	// Ctor
 	Zebroid(const string& name, float weight, int birthYear, int numOfStrips, float sizeOfHorseShoe);
     
+	// Methods
     virtual void toOs(ostream& os) const;
 };
 

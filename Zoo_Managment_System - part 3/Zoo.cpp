@@ -1,5 +1,7 @@
 #include "Zoo.h"
 
+Zoo Zoo::theZoo;
+
 Zoo::Zoo(const string& name, int maxNumOfAreas) : name(name), maxNumOfAreas(maxNumOfAreas){}
 
 void Zoo::addArea(Area& area) throw (const char*)

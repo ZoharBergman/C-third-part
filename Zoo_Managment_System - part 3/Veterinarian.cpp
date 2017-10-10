@@ -3,12 +3,7 @@
 Veterinarian::Veterinarian(const string& name, int salary, int yearsOfExperience, Area* area) : 
 	Worker(name, salary, area), yearsOfExperience(yearsOfExperience){};
 
-ostream& operator<<(ostream& os, const Veterinarian& veterinarian)
+void Veterinarian::toOs(ostream& os) const
 {
-	if (&veterinarian != nullptr)
-	{
-		os << (Worker&)veterinarian << ", Years of experience: " << veterinarian.getYearsOfExperience();
-	}
-
-	return os;
+	os << ", Years of experience: " << this->getYearsOfExperience();
 }

@@ -14,17 +14,22 @@
 class Veterinarian : public Worker
 {
 private:
+	// Attributes
     int yearsOfExperience;
+
+	// Deleted methods
 	Veterinarian(const Veterinarian& veterinarian);
     const Veterinarian& operator=(const Veterinarian& veterinarian);
 
 public:
+	// Ctor
     Veterinarian(const string& name, int salary, int yearsOfExperience, Area* area = nullptr);       
     
+	// Getters
 	inline int getYearsOfExperience() const { return yearsOfExperience; }
     
-    friend ostream& operator<<(ostream& os, const Veterinarian& veterinarian);
-    
+	// Methods
+    virtual void toOs(ostream& os) const;
 };
 
 #endif /* __VETERINARIAN_H */

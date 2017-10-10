@@ -34,6 +34,7 @@ void Area::addAnimal(Animal* animal) throw (const char *)
 		{
 			animals.addData(animal);
 			numOfAnimals++;
+			notifyAllWorkers(*animal);
 		}
 	}
 	else
@@ -64,10 +65,10 @@ void Area::removeAnimal(Animal* animal) throw (const char *)
 {
 	if (animal != nullptr)
 	{
-		// In case the animal exists, we should erase it from the vector of animals
+		// In case the animal exists, we should erase it from the linked list of animals
 		if(isAnimalExists(animal))
 		{
-			animals.removeData(animal);
+			animals.removeFirstInstanceOfData(animal);
 			numOfAnimals--;
 		}
 		else
@@ -111,10 +112,10 @@ ostream& operator<<(ostream& os, const Area& area)
 	if (&area != nullptr)
 	{
 		os << "Name: " << area.getName().c_str() << ", Max number of animals: " << area.getMaxNumberOfAnimals() 
-		   << ", Number of animals: " << area.getNumOfAnimals() << ", Max number of workers: " << area.getMaxNumberOfWorkers() 
-		   << ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << *area.getAreaManager() << "}, Animals: {";
-		   //<< area.getAllAnimals() << "}, Workers: {";
-		const LinkedList<Animal*>& animals = area.getAllAnimals();
+			<< ", Number of animals: " << area.getNumOfAnimals() << ", Max number of workers: " << area.getMaxNumberOfWorkers() 
+			<< ", Number of workers: " << area.getNumOfWorkers() << ", Area manager: {" << *area.getAreaManager() << "}, Animals: {"
+			<< area.getAllAnimals() << "}, Workers: {";
+
 		const vector<Worker*> workers = area.getAllworkers();
 
 		for (vector<Worker*>::const_iterator itr = workers.begin(); itr < workers.end(); ++itr)
@@ -128,4 +129,12 @@ ostream& operator<<(ostream& os, const Area& area)
 	}
 
 	return os;
+}
+
+void Area::notifyAllWorkers(Animal& animal) const
+{
+	for (vector<Worker*>::const_iterator itr = workers.begin(); itr < workers.end(); ++itr)
+	{
+		(*itr)->checkAnimalHealth(animal);
+	}
 }

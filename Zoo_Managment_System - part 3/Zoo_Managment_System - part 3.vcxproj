@@ -67,6 +67,9 @@
     <ClInclude Include="AreaManager.h" />
     <ClInclude Include="Elephant.h" />
     <ClInclude Include="Giraffe.h" />
+    <ClInclude Include="HealthStatse.h" />
+    <ClInclude Include="Healthy.h" />
+    <ClInclude Include="WorkerObserver.h" />
     <ClInclude Include="Horse.h" />
     <ClInclude Include="Keeper.h" />
     <ClInclude Include="LinkedList.h" />
@@ -74,6 +77,7 @@
     <ClInclude Include="MaintenanceWorker.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Penguin.h" />
+    <ClInclude Include="Sick.h" />
     <ClInclude Include="Veterinarian.h" />
     <ClInclude Include="Worker.h" />
     <ClInclude Include="Zebra.h" />
@@ -86,12 +90,14 @@
     <ClCompile Include="AreaManager.cpp" />
     <ClCompile Include="Elephant.cpp" />
     <ClCompile Include="Giraffe.cpp" />
+    <ClCompile Include="Healthy.cpp" />
     <ClCompile Include="Horse.cpp" />
     <ClCompile Include="Keeper.cpp" />
     <ClCompile Include="Lion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MaintenanceWorker.cpp" />
     <ClCompile Include="Penguin.cpp" />
+    <ClCompile Include="Sick.cpp" />
     <ClCompile Include="Veterinarian.cpp" />
     <ClCompile Include="Worker.cpp" />
     <ClCompile Include="Zebra.cpp" />

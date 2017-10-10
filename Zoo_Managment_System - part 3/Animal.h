@@ -11,32 +11,44 @@
 
 #include <iostream>
 
+#include "HealthStatse.h"
+
 using namespace std;
 
 class Animal
 {
     
 private:
-    string name;
+    // Attributes
+	string name;
     float weight;
     int birthYear;
+	HealthStatse* currentHealthState;
+
+	// Deleted methods
 	Animal(const Animal& animal);
     const Animal& operator=(const Animal& animal);
     
 public:
-	Animal(float weight, int birthYear, const string& name);
-    
-	virtual ~Animal(){}
+	// Ctor & Dtor
+	Animal(float weight, int birthYear, const string& name);    
+	virtual ~Animal(){ delete currentHealthState; }
 
+	// Getters & Setters
 	inline const string& getName() const { return name; }
+    inline float getWeight() const { return weight; }
+    inline int getBirthYear() const { return birthYear; }
+	const HealthStatse* getCurrentHealthState() const { return currentHealthState; }
+
+	void setHealthState(HealthStatse* healthStatse) { this->currentHealthState = healthStatse; }
     
-	inline float getWeight() const { return weight; }
-    
-	inline int getBirthYear() const { return birthYear; }
-    
+	// Operators
     friend ostream& operator<<(ostream& os, const Animal& animal);
 
+	// Methods
 	virtual void toOs(ostream& os) const {};
+	void healthy();
+	void sick();
 };
 
 #endif /* __ANIMAL_H */

@@ -14,13 +14,16 @@
 class AreaManager : public Worker
 {
 private:
+	// Deleted methods
 	AreaManager(const AreaManager& areaManager);
     const AreaManager& operator=(const AreaManager& areaManager);
 
 public:
+	// Ctor
 	AreaManager(const string& name, int salary, Area* area = nullptr);     
+	
+	// Setters
 	virtual void setArea(Area* newArea);
 };
-
 
 #endif /* __AREA_MANAGER_H */

@@ -17,17 +17,22 @@ class Giraffe : public Animal
 {
 
 private:
+	// Attributes
     float lengthOfNeck;
-    Giraffe(const Giraffe& giraffe);
+    
+	// Deleted methods
+	Giraffe(const Giraffe& giraffe);
     const Giraffe& operator=(const Giraffe& giraffe);
 
 public:
+	// Ctor
 	Giraffe(const string& name, float weight, int birthYear, float lengthOfNeck);
     
+	// Getters
 	inline float getLengthOfNeck() const { return lengthOfNeck; }
     
-    virtual void toOs(ostream& os) const;
-    
+	// Methods
+    virtual void toOs(ostream& os) const;    
 };
 
 #endif /* __GIRAFFE_H */

@@ -13,23 +13,30 @@
 
 using namespace std;
 
-static const enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
-static const string eManeColorText[] = {"White", "Brown", "Yellow", "Red", "Orange"};
-
 class Lion : public Animal
 {
+public:
+	// Static consts
+	static const enum eManeColor { WHITE, BROWN, YELLOW, RED, ORANGE };
+	static const char* eManeColorText[];
+
 private:
+	// Attributes
     eManeColor maneColor;
+
+	// Deleted methods
     Lion(const Lion& lion);
     const Lion& operator=(const Lion& lion);
 
 public:
+	// Ctor
 	Lion(const string& name, float weight, int birthYear, eManeColor maneColor);        
     
+	// Getters
 	inline eManeColor getManeColor() const { return maneColor; }
     
+	// Methods
     virtual void toOs(ostream& os) const;
 };
-
 
 #endif /* __LION_H */

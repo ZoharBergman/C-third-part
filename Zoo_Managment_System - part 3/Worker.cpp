@@ -28,9 +28,24 @@ ostream& operator<<(ostream& os, const Worker& worker)
 {
 	if (&worker != nullptr)
 	{
-		os << typeid(worker).name()+6 << ": Name: " << worker.getName().c_str() << ", Id number: " << worker.getIdNumber() 
-			<< ", Salary: " << worker.getSalary();
+		os << typeid(worker).name()+6 << "--> Name: " << worker.getName().c_str() << ", Id number: " << worker.getIdNumber() 
+			<< ", Salary: " << worker.getSalary();	
+		worker.toOs(os);
 	}
 
 	return os;
+}
+
+void Worker::checkAnimalHealth(Animal& animal) const
+{
+	bool isAnimalHealthy = (rand() % 2 != 0);
+
+	if (isAnimalHealthy)
+	{
+		animal.healthy();
+	}
+	else
+	{
+		animal.sick();
+	}
 }
