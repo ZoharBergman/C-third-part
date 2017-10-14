@@ -48,13 +48,17 @@ public:
 	{
 		const Node<T>* currNode = linkedList.getFirstNode();
 
-		while (currNode != nullptr)	
-		{		
-			os << "{" << *currNode->getData() << "}, ";
-			currNode = currNode->getNext();
+		if (currNode != nullptr)
+		{
+			while (currNode != nullptr)	
+			{		
+				os << "{" << *currNode->getData() << "}, ";
+				currNode = currNode->getNext();
+			}
+
+			os << '\b' << '\b';
 		}
 
-		os << '\b' << '\b';
 		return os;
 	}
 };
@@ -70,7 +74,7 @@ LinkedList<T>::~LinkedList()
 	{
 		Node<T>* tempNext = firstNode->getNext();
 		Node<T>* curr = firstNode;
-				
+
 		delete curr;
 		curr = tempNext;
 

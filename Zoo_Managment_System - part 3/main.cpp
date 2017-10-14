@@ -39,39 +39,81 @@ void freeAllKeepers(Keeper** keepers, int& numOfKeepers);
 
 int main(int argc, const char * argv[]) {
 
+	Zoo* myZoo = Zoo::getInstance();
+	int numOfManagers, numOfAreas, numOfKeepers, numOfVeterinarian, numOfAnimals;
+	AreaManager** managers;
+	Area** areas;
+	Keeper** keepers;
+	Veterinarian** vets;
+	Animal** animals;
+
 	try
 	{
-		Zoo* myZoo = Zoo::getInstance();
+		managers = createAreaManagers(numOfManagers);
 
-		int numOfManagers;
-		AreaManager** managers = createAreaManagers(numOfManagers);
-
-		int numOfAreas;
-		Area** areas = createAllAreas(managers, numOfAreas);
+		areas = createAllAreas(managers, numOfAreas);
 
 		// add all areas
 		addAreasToZoo(*myZoo, areas, numOfAreas);
 
-		int numOfKeepers;
-		Keeper** keepers = createAllKeepers(numOfKeepers);
+		keepers = createAllKeepers(numOfKeepers);
 
 		// add all the keepers
 		addKeepersToZoo(*myZoo, keepers, numOfKeepers);
 
-		int numOfVeterinarian;
-		Veterinarian** vets = createAllVeterinarian(numOfVeterinarian);
+		vets = createAllVeterinarian(numOfVeterinarian);
 
 		// add all vets
 		addAllVeterinarianToZoo(*myZoo, vets, numOfVeterinarian);
 		
-		int numOfAnimals;
-		Animal** animals = createAnimals(numOfAnimals);
+		animals = createAnimals(numOfAnimals);
 
 		// add animals
 		addAllAnimalsToZoo(*myZoo, animals, numOfAnimals);
 
 		// print the whole zoo
 		cout << *myZoo << endl;
+
+		cout << "=================================================================" << endl;
+
+		Area* a1 = myZoo->getAllAreas()[0];
+		Area* a2 = myZoo->getAllAreas()[1];
+		
+		cout << "Area A1 before remove animal" << endl;
+		cout << *a1 << endl << endl;
+
+		a1->removeAnimal(animals[0]);
+		
+		cout << "Area A1 after remove animal" << endl;
+		cout << *a1 << endl << endl;
+
+		cout << "Is area A1 smaller than area A2? ";
+		cout << ((*a1 < *a2 == true) ? "YES" : "NO") << endl << endl;
+		
+		cout << "Fire the area manager of area A1" << endl;		
+		a1->setAreaManager(nullptr);
+		cout << *a1 << endl << endl;
+
+		cout << "Try to print the area of the fired area manager" << endl;
+		cout << managers[0]->getArea() << endl << endl;
+
+		cout << "Area A2" << endl;
+		cout << *a2 << endl << endl;
+
+		cout << "Setting the area manager of A2 to be the area manager of A1" << endl;
+		a1->setAreaManager(a2->getAreaManager());
+		cout << *a1 << endl << endl;
+
+		cout << "Setting the fired area manager of area A1 to be the area manager of A2" << endl;
+		a2->setAreaManager(managers[0]);
+		cout << *a2 << endl << endl;
+
+		a1->removeWorker(vets[0]);
+		cout << "Area A1 after remove vet" << endl;
+		cout << *a1 << endl << endl;
+
+		cout << "Try to remove the vet again" << endl;
+		a1->removeWorker(vets[0]);
 
 		// free all memory
 		freeAllAnimals(animals, numOfAnimals);
@@ -83,6 +125,13 @@ int main(int argc, const char * argv[]) {
 	catch (const char* e)
 	{
 		cout << e;
+		
+		// free all memory
+		freeAllAnimals(animals, numOfAnimals);
+		freeAllAreaManagers(managers, numOfManagers);
+		freeAllAreas(areas, numOfAreas);
+		freeAllKeepers(keepers, numOfKeepers);
+		freeAllVeterinarian(vets, numOfVeterinarian);
 	}
 
 	return 0;

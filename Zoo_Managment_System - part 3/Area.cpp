@@ -123,7 +123,10 @@ ostream& operator<<(ostream& os, const Area& area)
 			os << "{" << **itr << "}, ";
 		}
 
-		os << '\b' << '\b';
+		if (area.getNumOfWorkers() > 0)
+		{
+			os << '\b' << '\b';
+		}
 
 		os << "}";
 	}

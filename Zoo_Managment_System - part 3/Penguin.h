@@ -18,7 +18,7 @@ class Penguin : public Animal
 public:
 	// Static consts
 	static const enum eSeaFood { SHRIMP, CRAB, FISH, CALAMARI };
-	static const char* eSeaFoodText[];
+	static const char* SEA_FOOD_TEXT[];
 
 private:
     // Attributes

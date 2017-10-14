@@ -38,7 +38,7 @@ public:
 	static Zoo* getInstance() { return &theZoo; }
     inline const string& getName() const { return name; }
     inline int getMaxNumOfAreas() const { return maxNumOfAreas; }
-	int getNumOfAreas() const { return areas.size(); }
+	inline int getNumOfAreas() const { return areas.size(); }
     const vector<Area*> getAllAreas() const { return areas; }
 	vector<Area*> getAllAreas() { return areas; }
 

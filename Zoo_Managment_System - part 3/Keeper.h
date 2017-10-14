@@ -16,7 +16,7 @@ class Keeper : public Worker
 public:
 	// Static consts
 	static const enum eAnimal {LION, PENGUIN, ELEPHANT, GIRAFFE, ZEBRA, HORSE, ZEBROID};
-	static const char* eAnimalsNames[];
+	static const char* ANIMALS_NAMES[];
 
 private:
 	// Attributes
